@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services - Digital Idea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0e0e10;
+      --text-white: #ffffff;
+      --text-light-grey: #b0b0b0;
+      --highlight-blue: #4da6ff;
+      --btn-orange: #ff6b35;
+      --card-bg: #18181b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+    }
+
+    /* --- নেভিগেশন বার --- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+
+    .logo-D {
+      color: var(--highlight-blue);
+      font-size: 30px;
+      margin-right: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      transition: 0.3s ease-in-out;
+    }
+
+    .nav-links a {
+      color: var(--text-light-grey);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: var(--text-white);
+    }
+
+    .btn-touch {
+      text-decoration: none;
+      color: var(--btn-orange);
+      border: 2px solid var(--btn-orange);
+      padding: 8px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-touch:hover {
+      background-color: var(--btn-orange);
+      color: var(--bg-dark);
+    }
+
+    /* --- Hamburger --- */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 30px;
+      height: 25px;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: var(--text-white);
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* --- সার্ভিস সেকশন --- */
+    .services {
+      text-align: center;
+      padding: 80px 100px;
+    }
+
+    .services h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .services p {
+      color: var(--text-light-grey);
+      font-size: 18px;
+      margin-bottom: 60px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 40px 25px;
+      border-radius: 12px;
+      transition: transform 0.3s, background-color 0.3s;
+      border: 1px solid #1f1f23;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      background-color: #1c1c1f;
+    }
+
+    .service-card h3 {
+      color: var(--highlight-blue);
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      color: var(--text-light-grey);
+      font-size: 15px;
+    }
+
+    /* --- ফুটার --- */
+    .footer-section {
+      background-color: #101013;
+      padding: 80px 100px;
+      border-top: 1px solid #1f1f23;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .footer-logo-area .logo {
+      font-size: 22px;
+    }
+
+    .footer-logo-area .tagline {
+      color: var(--text-light-grey);
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .footer-main-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+      flex: 1;
+    }
+
+    .footer-column h3 {
+      color: var(--highlight-blue);
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: var(--text-light-grey);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: var(--text-white);
+    }
+
+    .email-link {
+      color: var(--btn-orange);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .email-link:hover {
+      color: var(--highlight-blue);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-light-grey);
+      padding: 30px;
+      margin-top: 50px;
+      border-top: 1px solid #222;
+    }
+
+    /* --- রেসপন্সিভ --- */
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 20px 30px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background-color: #111;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        transform: translateY(-200%);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        transition: 0.4s ease;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+      }
+
+      .btn-touch {
+        display: none;
+      }
+
+      .services {
+        padding: 60px 30px;
+      }
+
+      .footer-main-links {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-section {
+        padding: 60px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-D"></span>
+      <span class="logo-text">DIGITAL IDEA</span>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Services.html" class="active">Services</a>
+      <a href="about.html">About</a>
+      <a href="contc.html">Contact</a>
+      <a href="contc.html" class="btn-touch">Get In Touch</a>
+    </nav>
+  </header>
+
+  <!-- Services Section -->
+  <section class="services">
+    <h1>Our Services</h1>
+    <p>We help businesses grow through strategy, creativity, and smart execution.</p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Content Marketing</h3>
+        <p>We create and distribute valuable content to attract and convert your target audience effectively.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Growth & Strategy</h3>
+        <p>We craft actionable strategies to help your brand scale faster and smarter.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Social Media Management</h3>
+        <p>We manage your social presence, engage your audience, and build strong brand awareness.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Video Edit & Repurposing</h3>
+        <p>Transform raw footage into scroll-stopping videos that drive engagement and conversions.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Google & Meta Ad Management</h3>
+        <p>We manage and optimize ad campaigns that deliver ROI and measurable business results.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container footer-content">
+      <div class="footer-logo-area">
+        <div class="logo">
+          <span class="logo-D"></span>
+          <span class="logo-text">DIGITAL IDEA</span>
+        </div>
+        <p class="tagline">We help you become more visible online</p>
+      </div>
+
+      <div class="footer-main-links">
+        <div class="footer-column links-column">
+          <h3>Links:</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contc.html">Contact</a></li>
+            <li><a href="">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column find-us-column">
+          <h3>Find Us:</h3>
+          <p>
+            Chonua,<br />
+            Feni 3901,<br />
+            Bangladesh
+          </p>
+        </div>
+
+        <div class="footer-column email-column">
+          <h3>Email Us:</h3>
+          <a href="mailto:disitalidea@gmail.com" class="email-link">disitalidea@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("active");
+      navLinks.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
